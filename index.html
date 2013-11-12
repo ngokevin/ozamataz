@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app='OzamatazApp' manifest='/.cache.manifest'>
+<head>
+    <title>Ozamataz</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="icon" type="image/x-icon" href="media/img/favicon.ico">
+    <link rel="stylesheet" href="media/css/base.css"/>
+
+    <link href='http://fonts.googleapis.com/css?family=Russo+One' rel='stylesheet' type='text/css'>
+    <script src="media/js/lib/angular.min.js"></script>
+    <script src="media/js/lib/angular-touch.js"></script>
+    <script src="media/js/lib/jquery.min.js"></script>
+</head>
+
+<body ng-controller="MainCtrl">
+  <h1>
+    <div class="heading">
+      <p class="top">annual east/west</p>
+      <p class="middle">east </p>
+      <p class="bottom">collegiate bowl</p>
+    </div>
+  </h1>
+
+  <div class="sounds">
+    <a class="sound" ng-repeat="sound in sounds" ng-click="play($event)">
+      <span>{{ sound[0] }}</span>
+      <audio src="{{ 'media/snd/wav/' + sound[1] + '.wav' }}" preload="auto"></audio>
+    </a>
+  </div>
+
+  <div class="footer">&nbsp;</div>
+
+  <script src="media/js/app.js"></script>
+</body>
+</html>

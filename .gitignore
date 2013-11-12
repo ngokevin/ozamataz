@@ -1,0 +1,7 @@
+*.mp3
+*.m4a
+*.swp
+*sass-cache*
+.DS_Store
+*.aup
+media/snd/mp3/
