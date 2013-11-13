@@ -9,16 +9,17 @@
     <link rel="stylesheet" href="media/css/base.css"/>
 
     <link href='http://fonts.googleapis.com/css?family=Russo+One' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Bree+Serif' rel='stylesheet' type='text/css'>
     <script src="media/js/lib/angular.min.js"></script>
     <script src="media/js/lib/angular-touch.js"></script>
     <script src="media/js/lib/jquery.min.js"></script>
 </head>
 
 <body ng-controller="MainCtrl">
-  <h1>
+  <h1 ng-class="{'east': isEast, 'west': isWest}">
     <div class="heading">
       <p class="top">annual east/west</p>
-      <p class="middle">east </p>
+      <p class="middle">{{ isEast ? 'east' : 'west' }} {{ is2013 ? 2013 : 2014 }}</p>
       <p class="bottom">collegiate bowl</p>
     </div>
     <menu class="c">
@@ -30,13 +31,14 @@
   </h1>
 
   <div class="sounds">
-    <a class="sound" ng-repeat="sound in sounds[activeSounds]" ng-click="play($event)">
+    <a class="sound" ng-class="{'east': isEast, 'west': isWest}"
+       ng-repeat="sound in sounds[activeSounds]" ng-click="play($event)">
       <span>{{ sound[0] }}</span>
       <audio src="{{ 'media/snd/wav/' + sound[1] + '.wav' }}" preload="auto"></audio>
     </a>
   </div>
 
-  <div class="footer">&nbsp;</div>
+  <div class="footer" ng-class="{'east': isEast, 'west': isWest}">&nbsp;</div>
 
   <script src="media/js/app.js"></script>
 </body>

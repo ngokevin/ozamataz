@@ -10,8 +10,10 @@ $light-text-color: rgb(250, 250, 250);
 $shadow: rgba(10, 10, 10, .1);
 $text-color: #1d1e1f;
 
-$east: red;
-$west: blue;
+$east: #CF173B;
+$west: #051688;
+$east-head: #CF173B;
+$west-head: #051688;
 
 .c {
     @include clearfix;
@@ -20,7 +22,7 @@ $west: blue;
 body {
     background: $bg;
     color: $text-color;
-    font-family: 'FiraSans';
+    font-family: 'Russo One', sans-serif;
     font-size: 20px;
     font-weight: 300;
     margin: 0 auto;
@@ -33,35 +35,47 @@ html body .hidden {
 
 h1 {
     @include box-shadow(0 0 1px 1px $shadow);
-    @include linear-gradient($header-bg, darken($header-bg, 10%));
     color: $light-text-color;
     font-family: 'Russo One', sans-serif;
     font-size: 24px;
     font-weight: bold;
     margin: 0;
-    padding: 2% 0 14% 5%;
+    padding-bottom: 14%;
+    padding-top: 2%;
     position: relative;
     text-align: center;
 
+    &.east {
+        @include linear-gradient($east-head, darken($east-head, 10%));
+    }
+    &.west {
+        @include linear-gradient($west-head, darken($west-head, 10%));
+    }
     .heading {
         display: inline-block;
-        font-size: 16px;
-        line-height: 12px;
+        font-size: 14px;
+        line-height: 10px;
         margin: 0 auto;
         text-align: center;
 
         p {
             text-transform: uppercase;
+            text-shadow: 1px 1px 2px #000;
+        }
+        .middle {
+            font-family: 'Bree Serif', serif;
+            font-size: 26px;
+            margin: 18px 0 23px;
+            text-shadow: 1px 1px 1px #000;
         }
     }
     menu {
-        bottom: 5%;
+        bottom: 0;
         font-size: 14px;
         font-weight: normal;
         display: inline-block;
         left: 0;
         margin: 0 auto;
-        margin-bottom: -10px;
         padding-left: 0;
         position: absolute;
         right: 0;
@@ -75,6 +89,7 @@ h1 {
             float: left;
             list-decoration: none;
             padding: 10px 0;
+            text-shadow: 1px 1px $shadow;
             width: 25%;
 
             &.east2013, &.east2014 {
@@ -88,40 +103,51 @@ h1 {
 }
 
 .sound {
-    @include box-shadow(inset 0 1px 1px $shadow);
+    @include box-shadow(inset 0 0 .8px $shadow);
     @include transition(background .2s);
     background: $bg;
     border: -1px solid $border-color;
     display: inline-block;
     float: left;
-    width: 25%;
     height: 0;
     padding-bottom: 25%;
     position: relative;
     text-align: center;
+    width: 25%;
 
     &:hover {
         cursor: pointer;
     }
     &.ng-click-active, &.clicked {
-        background: $highlight;
+        &.east {
+            background: rgba(220, 50, 50, .8);
+        }
+        &.west {
+            background: rgba(50, 50, 220, .8);
+        }
     }
     span {
-        font-size: 13px;
+        font-size: 10px;
         left: 0;
-        right: 0;
-        margin-top: -8px;
+        margin-top: -25px;
         position: absolute;
+        right: 0;
         top: 50%;
     }
 }
 
 .footer {
     @include box-shadow(0 0 1px 1px $shadow);
-    @include linear-gradient($header-bg, darken($header-bg, 10%));
     bottom: 0;
     height: 2%;
     left: 0;
     position: fixed;
     width: 100%;
+
+    &.east {
+        @include linear-gradient($east-head, darken($east-head, 10%));
+    }
+    &.west {
+        @include linear-gradient($west-head, darken($west-head, 10%));
+    }
 }

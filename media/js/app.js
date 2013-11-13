@@ -87,6 +87,12 @@ angular.module('OzamatazApp', ['ngTouch'])
             ["A.A. Ron Balakay", '65_aaron'],
         ]
     };
+    $scope.$watch('activeSounds', function() {
+        $scope.isEast = $scope.activeSounds[0] == 'e';
+        $scope.isWest = $scope.activeSounds[0] == 'w';
+        $scope.is2013 = $scope.activeSounds.indexOf('2013') > 0;
+        $scope.is2014 = $scope.activeSounds.indexOf('2014') > 0;
+    });
 
     $scope.play = function(e) {
         var $target = $(e.target);
