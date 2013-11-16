@@ -299,7 +299,20 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     clear: both; }
 
 body {
-  background: #f0e5e0;
+  background-color: #0e0e0e;
+  /* Fallback Color */
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#282828), to(#0e0e0e));
+  /* Saf4+, Chrome */
+  background-image: -webkit-linear-gradient(top, #282828, #0e0e0e);
+  /* Chrome 10+, Saf5.1+, iOS 5+ */
+  background-image: -moz-linear-gradient(top, #282828, #0e0e0e);
+  /* FF3.6 */
+  background-image: -ms-linear-gradient(top, #282828, #0e0e0e);
+  /* IE10 */
+  background-image: -o-linear-gradient(top, #282828, #0e0e0e);
+  /* Opera 11.10+ */
+  background-image: linear-gradient(top, #282828, #0e0e0e);
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#282828', EndColorStr='#0e0e0e');
   color: #1d1e1f;
   font-family: 'Russo One', sans-serif;
   font-size: 20px;
@@ -316,6 +329,11 @@ h1 {
   -ms-box-shadow: 0 0 1px 1px rgba(10, 10, 10, 0.1);
   -o-box-shadow: 0 0 1px 1px rgba(10, 10, 10, 0.1);
   box-shadow: 0 0 1px 1px rgba(10, 10, 10, 0.1);
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
   color: #fafafa;
   font-family: 'Russo One', sans-serif;
   font-size: 24px;
@@ -398,6 +416,13 @@ h1 {
         background: #cf173b; }
       h1 menu li.west2013, h1 menu li.west2014 {
         background: #051688; }
+      h1 menu li.active {
+        text-decoration: underline; }
+        h1 menu li.active:hover {
+          cursor: default; }
+
+.sounds {
+  background: #282828; }
 
 .sound {
   -webkit-box-shadow: inset 0 0 0.8px rgba(10, 10, 10, 0.1);
@@ -405,13 +430,13 @@ h1 {
   -ms-box-shadow: inset 0 0 0.8px rgba(10, 10, 10, 0.1);
   -o-box-shadow: inset 0 0 0.8px rgba(10, 10, 10, 0.1);
   box-shadow: inset 0 0 0.8px rgba(10, 10, 10, 0.1);
-  -webkit-transition: background 0.2s;
-  -moz-transition: background 0.2s;
-  -ms-transition: background 0.2s;
-  -o-transition: background 0.2s;
-  transition: background 0.2s;
-  background: #f0e5e0;
-  border: -1px solid #d5d7d8;
+  -webkit-transition: opacity 0.3s;
+  -moz-transition: opacity 0.3s;
+  -ms-transition: opacity 0.3s;
+  -o-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+  background-size: 100%;
+  box-shadow: 0 0 1px #fafafa;
   display: inline-block;
   float: left;
   height: 0;
@@ -421,17 +446,17 @@ h1 {
   width: 25%; }
   .sound:hover {
     cursor: pointer; }
-  .sound.ng-click-active.east, .sound.clicked.east {
-    background: rgba(220, 50, 50, 0.8); }
-  .sound.ng-click-active.west, .sound.clicked.west {
-    background: rgba(50, 50, 220, 0.8); }
+  .sound.ng-click-active, .sound.clicked {
+    opacity: .7; }
   .sound span {
+    color: #fafafa;
     font-size: 10px;
     left: 0;
     margin-top: -25px;
     position: absolute;
     right: 0;
-    top: 50%; }
+    text-shadow: 1px 1px 2px #000;
+    bottom: 2%; }
 
 .footer {
   -webkit-box-shadow: 0 0 1px 1px rgba(10, 10, 10, 0.1);

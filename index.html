@@ -23,15 +23,16 @@
       <p class="bottom">collegiate bowl</p>
     </div>
     <menu class="c">
-      <li class="{{ navItem[0] }}"
+      <li class="{{ navItem[0] }}" ng-class="{'active': navItem[0] == activeSounds}"
           ng-repeat="navItem in soundsNav" ng-click="$parent.activeSounds = navItem[0]">
         {{ navItem[1] }}
       </li>
     </menu>
   </h1>
 
-  <div class="sounds">
-    <a class="sound" ng-class="{'east': isEast, 'west': isWest}"
+  <div class="sounds c">
+    <a class="sound" style="background-image: url('media/img/roster/{{ sound[1] }}.png"
+       ng-class="{'east': isEast, 'west': isWest}"
        ng-repeat="sound in sounds[activeSounds]" ng-click="play($event)">
       <span>{{ sound[0] }}</span>
       <audio src="{{ 'media/snd/wav/' + sound[1] + '.wav' }}" preload="auto"></audio>

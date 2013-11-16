@@ -2,7 +2,7 @@
 @import 'font';
 @import 'globals';
 
-$bg: #f0e5e0;
+$bg : rgb(40, 40, 40);
 $border-color: #d5d7d8;
 $header-bg: lighten(rgb(44, 154, 207), 2%);
 $highlight: rgb(252, 143, 42);
@@ -20,7 +20,7 @@ $west-head: #051688;
 }
 
 body {
-    background: $bg;
+    @include linear-gradient($bg, darken($bg, 10%));
     color: $text-color;
     font-family: 'Russo One', sans-serif;
     font-size: 20px;
@@ -35,6 +35,7 @@ html body .hidden {
 
 h1 {
     @include box-shadow(0 0 1px 1px $shadow);
+    @include transition(all .3s);
     color: $light-text-color;
     font-family: 'Russo One', sans-serif;
     font-size: 24px;
@@ -98,15 +99,26 @@ h1 {
             &.west2013, &.west2014 {
                 background: $west;
             }
+            &.active {
+                text-decoration: underline;
+
+                &:hover {
+                    cursor: default;
+                }
+            }
         }
     }
 }
 
+.sounds {
+    background: $bg;
+}
+
 .sound {
     @include box-shadow(inset 0 0 .8px $shadow);
-    @include transition(background .2s);
-    background: $bg;
-    border: -1px solid $border-color;
+    @include transition(opacity .3s);
+    background-size: 100%;
+    box-shadow: 0 0 1px $light-text-color;
     display: inline-block;
     float: left;
     height: 0;
@@ -119,20 +131,17 @@ h1 {
         cursor: pointer;
     }
     &.ng-click-active, &.clicked {
-        &.east {
-            background: rgba(220, 50, 50, .8);
-        }
-        &.west {
-            background: rgba(50, 50, 220, .8);
-        }
+        opacity: .7;
     }
     span {
+        color: $light-text-color;
         font-size: 10px;
         left: 0;
         margin-top: -25px;
         position: absolute;
         right: 0;
-        top: 50%;
+        text-shadow: 1px 1px 2px #000;
+        bottom: 2%;
     }
 }
 
