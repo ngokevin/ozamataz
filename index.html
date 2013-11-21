@@ -31,7 +31,7 @@
   </h1>
 
   <div class="sounds c">
-    <a class="sound" style="background-image: url('media/img/roster/{{ sound[1] }}.png"
+    <a class="sound" style="background-image: url('media/img/roster/{{ sound[1] }}.png');"
        ng-class="{'east': isEast, 'west': isWest}"
        ng-repeat="sound in sounds[activeSounds]" ng-click="play($event)">
       <span>{{ sound[0] }}</span>
